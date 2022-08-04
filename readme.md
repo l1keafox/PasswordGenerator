@@ -2,6 +2,13 @@
 
     Click here to get to published website.
 
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<img src="./projectImg.png" alt="">
+</body>
+</html>
 # Description
 
     After pressing a button it will generate a password.
@@ -10,4 +17,4 @@
 
     Raymond Lewis# passwordGenerator
 # passwordGenerator
-# passwordGenerator
+
