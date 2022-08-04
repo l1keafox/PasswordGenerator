@@ -4,10 +4,19 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
-<body>
-<img src="./projectImg.png" alt="">
-</body>
+<html lang="en-US">
+
+  <head>
+    Horiseon Website  
+  </head>
+
+  <body>
+    <br>
+    <a href="https://l1keafox.github.io/passwordGenerator" target="no_blank">Click here for Website </a> 
+    <br>
+    <img src="projectImg.png" />
+  </body>
+
 </html>
 # Description
 
