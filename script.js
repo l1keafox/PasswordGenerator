@@ -25,10 +25,10 @@ let lengthOfPswrd;
 do{
   lengthOfPswrd = prompt("Enter the length of password you would like");
   console.log(lengthOfPswrd);
-  if(lengthOfPswrd < 8 || lengthOfPswrd > 128){
+  if(lengthOfPswrd < 8 || lengthOfPswrd > 128 || typeof(lengthOfPswrd) == Number ){
     alert("We only accept password lengths between 8 and 128");
   }
-}while( lengthOfPswrd < 8 || lengthOfPswrd > 128 )
+}while( lengthOfPswrd < 8 || lengthOfPswrd > 128 || typeof(lengthOfPswrd) == Number )
  
 
 

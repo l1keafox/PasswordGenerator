@@ -7,14 +7,14 @@
 <html lang="en-US">
 
   <head>
-    Horiseon Website  
+    Random Password Website
   </head>
 
   <body>
     <br>
     <a href="https://l1keafox.github.io/passwordGenerator" target="no_blank">Click here for Website </a> 
     <br>
-    <img src="projectImg.png" />
+    <img src="projectImg.PNG" />
   </body>
 
 </html>
