@@ -18,17 +18,18 @@ function generatePassword(){
 //  THEN I am presented with a series of prompts for password criteria
 //  WHEN prompted for password criteria
 //  THEN I select which criteria to include in the password
+
+
 //  WHEN prompted for the length of the password
 //  THEN I choose a length of at least 8 characters and no more than 128 characters
 let lengthOfPswrd;
-
 do{
   lengthOfPswrd = prompt("Enter the length of password you would like");
-  console.log(lengthOfPswrd);
-  if(lengthOfPswrd < 8 || lengthOfPswrd > 128 || typeof(lengthOfPswrd) == Number ){
+//  THEN my input should be validated and at least one character type should be selected
+  if(lengthOfPswrd < 8 || lengthOfPswrd > 128 || typeof lengthOfPswrd == 'number' ){
     alert("We only accept password lengths between 8 and 128");
   }
-}while( lengthOfPswrd < 8 || lengthOfPswrd > 128 || typeof(lengthOfPswrd) == Number )
+}while( lengthOfPswrd < 8 || lengthOfPswrd > 128 || typeof lengthOfPswrd  == 'number' )
  
 
 
@@ -39,9 +40,8 @@ let lowercase;
 let uppercase;
 do{
   lowercase = confirm("Include Lowercase");
-  console.log(lowercase ,"lowercase");
   uppercase = confirm("Include Uppercase");
-  console.log(uppercase ,"uppercase");
+//  THEN my input should be validated and at least one character type should be selected
   if(!lowercase && !uppercase ){
     alert("password needs lower or uppercase!");
   }
@@ -50,14 +50,10 @@ do{
 //  THEN I confirm whether or not to include numeric, and/or special characters
 let numeric = confirm("Include Numbers");
 
-
 //  THEN I confirm whether or not to include special characters
 let specialChars = confirm("Include Special Characters");
-console.log(specialChars, "specialChars");
 
 //WHEN I answer each prompt
-
-//  THEN my input should be validated and at least one character type should be selected
 
 let getNumberBetween = function(min,max){
   let randHigh = max - min;
@@ -69,7 +65,7 @@ let getLetter = function(uppercase,lowercase){
   let letters = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',  'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
   if(uppercase && lowercase){
     letters.concat(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' ] );
-  } else if(lowercase&& !uppercase){
+  } else if(lowercase && !uppercase){
     letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' ];
   }
   let rando =  getNumberBetween(0,letters.length-1);
@@ -153,5 +149,8 @@ for(let i = 0;i<passwordLength;i++){
 
 
 //  THEN the password is either displayed in an alert or written to the page
+document.getElementById("password").name = returnPassword;
 alert("This is your password: "+returnPassword);
+
+
 }

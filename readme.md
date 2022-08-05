@@ -1,8 +1,4 @@
 # Password generator
-
-    Click here to get to published website.
-
-
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -20,10 +16,10 @@
 </html>
 # Description
 
-    After pressing a button it will generate a password.
+    Pressing a button will start prompts to create a password
 
 # Writer
 
     Raymond Lewis# passwordGenerator
-# passwordGenerator
+
 
