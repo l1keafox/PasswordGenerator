@@ -9,7 +9,8 @@ generateBtn.addEventListener("click", writePassword);
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+//  THEN the password is either displayed in an alert or written to the page
+  alert("This is your password: "+password);
   passwordText.value = password;
 }
 
@@ -22,135 +23,122 @@ function generatePassword(){
 
 //  WHEN prompted for the length of the password
 //  THEN I choose a length of at least 8 characters and no more than 128 characters
-let lengthOfPswrd;
-do{
-  lengthOfPswrd = prompt("Enter the length of password you would like");
+  let lengthOfPswrd;
+  do{
+    lengthOfPswrd = prompt("Enter the length of password you would like");
 //  THEN my input should be validated and at least one character type should be selected
-  if(lengthOfPswrd < 8 || lengthOfPswrd > 128 || typeof lengthOfPswrd == 'number' ){
-    alert("We only accept password lengths between 8 and 128");
-  }
-}while( lengthOfPswrd < 8 || lengthOfPswrd > 128 || typeof lengthOfPswrd  == 'number' )
+    if(lengthOfPswrd < 8 || lengthOfPswrd > 128 || typeof lengthOfPswrd == 'number' ){
+      alert("We only accept password lengths between 8 and 128");
+    }
+  }while( lengthOfPswrd < 8 || lengthOfPswrd > 128 || typeof lengthOfPswrd  == 'number' )
  
 
 
 //  WHEN asked for character types to include in the password
 //  THEN I confirm whether or not to include lowercase, 
 //  THEN I confirm whether or not to include uppercase,
-let lowercase;
-let uppercase;
-do{
-  lowercase = confirm("Include Lowercase");
-  uppercase = confirm("Include Uppercase");
+  let lowercase;
+  let uppercase;
+  do{
+    lowercase = confirm("Include Lowercase");
+    uppercase = confirm("Include Uppercase");
 //  THEN my input should be validated and at least one character type should be selected
-  if(!lowercase && !uppercase ){
-    alert("password needs lower or uppercase!");
-  }
-}while(!lowercase && !uppercase )
+    if(!lowercase && !uppercase ){
+      alert("password needs lower or uppercase!");
+    }
+  }while(!lowercase && !uppercase )
 
 //  THEN I confirm whether or not to include numeric, and/or special characters
-let numeric = confirm("Include Numbers");
+  let numeric = confirm("Include Numbers");
 
 //  THEN I confirm whether or not to include special characters
-let specialChars = confirm("Include Special Characters");
+  let specialChars = confirm("Include Special Characters");
 
 //WHEN I answer each prompt
 
-let getNumberBetween = function(min,max){
-  let randHigh = max - min;
-  let randomNumber = Math.floor( Math.random() * randHigh );
-  return randomNumber + min;
-}
+  let getNumberBetween = function(min,max){
+    let randHigh = max - min;
+    let randomNumber = Math.floor( Math.random() * randHigh );
+    return randomNumber + min;
+  }
 
-let getLetter = function(uppercase,lowercase){
+  let getLetter = function(uppercase,lowercase){
   let letters = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',  'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
-  if(uppercase && lowercase){
-    letters.concat(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' ] );
-  } else if(lowercase && !uppercase){
+    if(uppercase && lowercase){
+      letters.concat(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' ] );
+    } else if(lowercase && !uppercase){
     letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' ];
+    }
+    let rando =  getNumberBetween(0,letters.length-1);
+    return letters[rando];
   }
-  let rando =  getNumberBetween(0,letters.length-1);
-  return letters[rando];
-}
 
-let getNumber = function(){
-  let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-  let rando =  getNumberBetween(0,numbers.length-1);
-  return numbers[rando];
-}
-
-let getSpecial = function(){
-  let specials =["!","@","#","$","%","^","&","*","(",")"];
-  let rando =  getNumberBetween(0,specials.length-1);
-  return specials[rando];
-}
-
-
-let passwordLength = getNumberBetween(8,lengthOfPswrd);
-let returnPassword = "";
-
-if(uppercase){
-  returnPassword += getLetter(uppercase,false);
-  passwordLength--;
-}
-if(lowercase){
-  returnPassword += getLetter(false,lowercase);
-  passwordLength--;
-}
-if(specialChars){
-  returnPassword += getSpecial();
-  passwordLength--;
-}
-if(numeric){
-  returnPassword += getNumber();
-  passwordLength--;
-}
-
-for(let i = 0;i<passwordLength;i++){
-  switch(getNumberBetween(0,4)  ){ //
-    case 1:
-      if(uppercase){
-        returnPassword += getLetter(uppercase,false);        
-      } else {
-        passwordLength++;
-      }
-      break;
-    case 2:
-      if(lowercase){
-        returnPassword += getLetter(false,lowercase);
-      } else {
-        passwordLength++;
-      }
-      
-      break;
-    case 3:
-      if(specialChars){
-        returnPassword += getSpecial();
-      } else {
-        passwordLength++;
-      }
-      
-      break;
-    case 0:
-      if(numeric){
-        returnPassword += getNumber();
-      } else {
-        passwordLength++;
-      }
-      
-      break;
+  let getNumber = function(){
+    let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    let rando =  getNumberBetween(0,numbers.length-1);
+      return numbers[rando];  
   }
-}
 
-//  THEN a password is generated that matches the selected criteria
-// Generating password, requiresments and 1 of each requiremnt. 
-
-
-
-
-
-//  THEN the password is either displayed in an alert or written to the page
-document.getElementById("passArea").innerHTML = returnPassword;
-alert("This is your password: "+returnPassword);
+  let getSpecial = function(){
+    let specials =["!","@","#","$","%","^","&","*","(",")"];
+    let rando =  getNumberBetween(0,specials.length-1);
+    return specials[rando];
+  } 
 
 
+  let returnPassword = "";
+  //  THEN a password is generated that matches the selected criteria
+    // Generating password, requiresments and 1 of each requiremnt. 
+  let passwordLength = getNumberBetween(8,lengthOfPswrd);
+
+  if(uppercase){
+    returnPassword += getLetter(uppercase,false);
+    passwordLength--; 
+  }
+  if(lowercase){
+    returnPassword += getLetter(false,lowercase);
+    passwordLength--;
+  }
+  if(specialChars){
+    returnPassword += getSpecial();
+    passwordLength--;
+  }
+  if(numeric){
+    returnPassword += getNumber();
+    passwordLength--;
+  }
+
+  for(let i = 0;i<passwordLength;i++){
+    switch(getNumberBetween(0,4)  ){ //
+      case 1:
+        if(uppercase){
+          returnPassword += getLetter(uppercase,false);        
+        } else {
+          passwordLength++;
+        }
+        break;
+      case 2:
+        if(lowercase){
+          returnPassword += getLetter(false,lowercase);
+        } else {
+          passwordLength++;
+        }
+        break;
+      case 3:
+        if(specialChars){
+          returnPassword += getSpecial();
+        } else {
+          passwordLength++;
+        }
+      break;
+      case 0:
+        if(numeric){
+          returnPassword += getNumber();
+        } else {
+          passwordLength++;
+        }
+      break;
+    }
+  }
+return returnPassword;
 }
