@@ -40,8 +40,8 @@ function generatePassword(){
   let lowercase;
   let uppercase;
   do{
-    lowercase = confirm("Include Lowercase");
-    uppercase = confirm("Include Uppercase");
+    lowercase = confirm("Include Lowercase?");
+    uppercase = confirm("Include Uppercase?");
 //  THEN my input should be validated and at least one character type should be selected
     if(!lowercase && !uppercase ){
       alert("password needs lower or uppercase!");
@@ -49,10 +49,10 @@ function generatePassword(){
   }while(!lowercase && !uppercase )
 
 //  THEN I confirm whether or not to include numeric, and/or special characters
-  let numeric = confirm("Include Numbers");
+  let numeric = confirm("Include Numbers?");
 
 //  THEN I confirm whether or not to include special characters
-  let specialChars = confirm("Include Special Characters");
+  let specialChars = confirm("Include Special Characters?");
 
 //WHEN I answer each prompt
 
