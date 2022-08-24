@@ -18,7 +18,7 @@ A website that generated a random password depending on inputs.
 ## Usage 
 Go to website to generate password and answer prompts.
 
-* <a href='https://l1keafox.github.io/PasswordGenerator/" target="_blank'> Click here for deployment </a> 
+* <a href='https://l1keafox.github.io/PasswordGenerator/' target='_blank'> Click here for deployment </a> 
 
 ![Website](projectImg.PNG)
 
